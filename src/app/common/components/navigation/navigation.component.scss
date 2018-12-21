@@ -1,0 +1,16 @@
+:host {
+    .navigation-container {
+        background-color: #ffffff;
+        background-position: 100% 0;
+        background-repeat: repeat-y;
+        background-size: 6px 1px;
+        bottom: 0px;
+        box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
+        left: 0px;
+        padding: 0px;
+        position: fixed;
+        top: 0px;
+        width: 70px;
+        z-index: 100;
+    }
+}

@@ -1,0 +1,18 @@
+<div class="loginContainer">
+  <mat-toolbar>Login</mat-toolbar>
+  <form [formGroup]="loginForm" (ngSubmit)="getAuth()">
+    <mat-list>
+      <mat-list-item>
+        <mat-form-field>
+          <input matInput type="text" formControlName="fanxUsername" placeholder="Email address" autocomplete="nope" />
+        </mat-form-field>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-form-field>
+          <input matInput type="password" formControlName="fanxPassword" placeholder="password" autocomplete="nope" />
+        </mat-form-field>
+      </mat-list-item>
+    </mat-list>
+    <button mat-raised-button color="primary" type="submit" [disabled]="!loginForm.valid"><i class="fal fa-sign-in-alg"></i>&nbsp;&nbsp;Log In</button>
+  </form>
+</div>

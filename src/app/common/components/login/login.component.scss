@@ -1,0 +1,12 @@
+:host {
+    display: block;
+    margin-left: 70px;
+    .loginContainer {
+        background-color: #353535;
+        margin: 100px auto 0;
+        width: 400px;
+        mat-form-field {
+            width: 100%;
+        }
+    }
+}

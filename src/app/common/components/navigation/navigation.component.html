@@ -1,5 +1,36 @@
-<div class="navigation-container">
+<div class="navigationContainer">
 
-  <div><i class='far fa-tachometer-alt'></i></div>
+  <div class="logoContainer"></div>
+
+  <div class="linkContainer">
+    <a href="/dashboard" mat-menu-item>
+      <i class='far fa-home'></i><br />
+      Home
+    </a>
+  </div>
+  <div class="linkContainer">
+    <a href="/guests" mat-menu-item>
+      <i class='far fa-user-secret'></i><br />
+      Guests
+    </a>
+  </div>
+  <div class="linkContainer">
+    <a href="/venders" mat-menu-item>
+      <i class='far fa-comments-dollar'></i><br />
+      Vendors
+    </a>
+  </div>
+  <div class="linkContainer">
+    <a href="/settings" mat-menu-item>
+      <i class='far fa-cogs'></i><br />
+      Settings
+    </a>
+  </div>
+  <div class="linkContainer fixBottom">
+    <a href="#" mat-menu-item (click)="doSignOut()">
+      <i class='far fa-sign-out-alt'></i><br />
+      Sign Out
+    </a>
+  </div>
 
 </div>

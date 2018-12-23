@@ -17,11 +17,21 @@
             border-bottom: 1px solid #cccccc;
             height: 52px;
         }
-        .linkContainer {
-            border-bottom: 1px solid #cccccc;
-            cursor: pointer;
-            padding: 15px 0 7px;
-            text-align: center;
+        .innerContainer {
+            .linkContainer {
+                border-bottom: 1px solid #cccccc;
+                text-align: center;
+                a {
+                    color: #474747;
+                    display: block;
+                    font-size: 13px;
+                    padding: 15px 0 7px;
+                    width: 100%;
+                    i {
+                        font-size: 24px;
+                    }
+                }
+            }
             &.fixBottom {
                 border-bottom: none;
                 border-top: 1px solid #cccccc;
@@ -29,13 +39,6 @@
                 left: 0px;
                 position: absolute;
                 right: 0px;
-            }
-            .mat-menu-item {
-                color: #474747;
-                font-size: 13px;
-                i {
-                    font-size: 24px;
-                }
             }
         }
     }

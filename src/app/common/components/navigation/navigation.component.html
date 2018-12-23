@@ -1,36 +1,47 @@
-<div class="navigationContainer">
+<div class='navigationContainer'>
 
-  <div class="logoContainer"></div>
+  <div class='logoContainer'></div>
 
-  <div class="linkContainer">
-    <a href="/dashboard" mat-menu-item>
-      <i class='far fa-home'></i><br />
-      Home
-    </a>
+  <div class='innerContainer'>
+    <div class='linkContainer'>
+      <a href='/dashboard' mat-menu-item>
+        <i class='far fa-home fa-fw'></i><br />
+        Home
+      </a>
+    </div>
+    <div class='linkContainer'>
+      <a href='/cons' mat-menu-item>
+        <i class='far fa-calendar-plus fa-fw'></i><br />
+        Cons
+      </a>
+    </div>
+    <div class='linkContainer'>
+      <a href='/guests' mat-menu-item>
+        <i class='far fa-user-secret fa-fw'></i><br />
+        Guests
+      </a>
+    </div>
+    <div class='linkContainer'>
+      <a href='/vendors' mat-menu-item>
+        <i class='far fa-comments-dollar fa-fw'></i><br />
+        Vendors
+      </a>
+    </div>
   </div>
-  <div class="linkContainer">
-    <a href="/guests" mat-menu-item>
-      <i class='far fa-user-secret'></i><br />
-      Guests
-    </a>
-  </div>
-  <div class="linkContainer">
-    <a href="/vendors" mat-menu-item>
-      <i class='far fa-comments-dollar'></i><br />
-      Vendors
-    </a>
-  </div>
-  <div class="linkContainer">
-    <a href="/settings" mat-menu-item>
-      <i class='far fa-cogs'></i><br />
-      Settings
-    </a>
-  </div>
-  <div class="linkContainer fixBottom">
-    <a href="#" mat-menu-item (click)="doSignOut()">
-      <i class='far fa-sign-out-alt'></i><br />
-      Sign Out
-    </a>
+
+  <div class='innerContainer fixBottom'>
+    <div class='linkContainer'>
+      <a href='/settings' mat-menu-item>
+        <i class='far fa-cogs fa-fw'></i><br />
+        Settings
+      </a>
+    </div>
+    <div class='linkContainer'>
+      <a href='#' mat-menu-item (click)='doSignOut()'>
+        <i class='far fa-sign-out-alt fa-fw'></i><br />
+        Sign Out
+      </a>
+    </div>
   </div>
 
 </div>

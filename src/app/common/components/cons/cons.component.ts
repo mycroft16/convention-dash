@@ -1,4 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material';
+import { AddConDialogComponent } from './add-con-dialog/add-con-dialog.component';
 
 @Component({
   selector: 'app-cons',
@@ -8,7 +10,13 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 })
 export class ConsComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
+
+  openAddConDialog() {
+    this.dialog.open(AddConDialogComponent, {
+      width: '500px'
+    });
+  }
 
   ngOnInit() {
   }

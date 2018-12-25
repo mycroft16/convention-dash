@@ -16,10 +16,16 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { STORES, EFFECTS, PROVIDERS, metaReducers } from './common/store';
 
+// ENTRY COMPONENTS
+import { AddConDialogComponent } from './common/components/cons/add-con-dialog/add-con-dialog.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     ...COMPONENTS
+  ],
+  entryComponents: [
+    AddConDialogComponent
   ],
   imports: [
     AppRoutingModule,

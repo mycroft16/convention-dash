@@ -14,7 +14,8 @@ export class ConsComponent implements OnInit {
 
   openAddConDialog() {
     this.dialog.open(AddConDialogComponent, {
-      width: '500px'
+      height: '400px',
+      width: '400px'
     });
   }
 

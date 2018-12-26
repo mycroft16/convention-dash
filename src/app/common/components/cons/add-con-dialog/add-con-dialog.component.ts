@@ -27,6 +27,7 @@ export class AddConDialogComponent implements OnInit {
 
   createCon() {
     console.log(this.addConForm);
+    this.store.dispatch(factory => factory.cons.createCon(this.addConForm.value));
   }
 
   ngOnInit() {

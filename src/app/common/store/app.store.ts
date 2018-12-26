@@ -8,24 +8,31 @@ import 'rxjs/add/operator/map';
 import * as AuthActions from './auth/auth.actions';
 import * as AuthState from './auth/auth.state';
 
+import * as ConsActions from './cons/cons.actions';
+import * as ConsState from './cons/cons.state';
+
 import * as DropdownActions from './dropdowns/dropdowns.actions';
 import * as DropdownState from './dropdowns/dropdowns.state';
 
 export type AuthState = AuthState.State;
+export type ConsState = ConsState.State;
 export type DropdownState = DropdownState.State;
 
 export interface ActionFactory {
     readonly auth: AuthActions.ActionFactory;
+    readonly cons: ConsActions.ActionFactory;
     readonly dropdowns: DropdownActions.ActionFactory;
 }
 
 export interface InternalActionFactory {
     readonly auth: AuthActions.InternalActionFactory;
+    readonly cons: ConsActions.InternalActionFactory;
     readonly dropdowns: DropdownActions.InternalActionFactory;
 }
 
 export interface AppState {
     readonly auth: AuthState;
+    readonly cons: ConsState;
     readonly dropdowns: DropdownState;
 }
 
@@ -35,6 +42,7 @@ export interface AppReducers {
 
 export const reducers: AppReducers = {
     auth: AuthState.reducer,
+    cons: ConsState.reducer,
     dropdowns: DropdownState.reducer
 }
 
@@ -91,11 +99,13 @@ export class AppStore {
 
     private readonly actionFactory: ActionFactory = {
         auth: new AuthActions.ActionFactory,
+        cons: new ConsActions.ActionFactory,
         dropdowns: new DropdownActions.ActionFactory,
     }
 
     private readonly internalActionFactory: InternalActionFactory = {
         auth: new AuthActions.InternalActionFactory,
+        cons: new ConsActions.InternalActionFactory,
         dropdowns: new DropdownActions.InternalActionFactory
     }
 

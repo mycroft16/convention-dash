@@ -21,12 +21,20 @@ export class ActionFactory {
 }
 
 export class InternalActionFactory {
-    public getConsSuccess(response: ICon): GetConsSuccess {
+    public getConsSuccess(response: ICon[]): GetConsSuccess {
         return new GetConsSuccess(response);
     }
 
     public createConSuccess(response: ICon): CreateConSuccess {
         return new CreateConSuccess(response);
+    }
+
+    public refreshCons(): RefreshCons {
+        return new RefreshCons();
+    }
+
+    public refreshConsSuccess(response: ICon[]): RefreshConsSuccess {
+        return new RefreshConsSuccess(response);
     }
 }
 
@@ -64,4 +72,15 @@ export class ClearSelectedCon implements Action {
     public readonly type = ClearSelectedCon.Type;
 }
 
-export type Any = GetCons | GetConsSuccess | CreateCon | CreateConSuccess | SelectCon | ClearSelectedCon;
+export class RefreshCons implements Action {
+    public static readonly Type = '[Cons] Refresh Cons';
+    public readonly type = RefreshCons.Type;
+}
+
+export class RefreshConsSuccess implements Action {
+    public static readonly Type = '[Cons] Refresh Cons Success';
+    public readonly type = RefreshConsSuccess.Type;
+    constructor(public readonly response) { }
+}
+
+export type Any = GetCons | GetConsSuccess | CreateCon | CreateConSuccess | SelectCon | ClearSelectedCon | RefreshCons | RefreshConsSuccess;

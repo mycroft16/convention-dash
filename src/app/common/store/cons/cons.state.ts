@@ -31,6 +31,10 @@ export function reducer(state: State = initialState, action: ConsActions.Any): S
             return { ...state, ...{ selectedCon: null } }
         }
 
+        case ConsActions.RefreshConsSuccess.Type: {
+            return { ...state, ...{ list: action.response, selectedCon: null } }
+        }
+
         default: {
             return state;
         }

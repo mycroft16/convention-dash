@@ -31,6 +31,16 @@ export class ConsEffects {
             )
         );
 
+    @Effect()
+    public refreshCons: Observable<Action> = this.actions
+            .pipe(
+              ofType(ConsActions.RefreshCons.Type),
+              switchMap((action: ConsActions.RefreshCons) =>
+                this.service.refreshCons()
+                    .pipe(map(response => this.store.create(factory => factory.cons.refreshConsSuccess(response))))
+              )  
+            );
+
     constructor(
         private actions: Actions,
         private store: AppStore,

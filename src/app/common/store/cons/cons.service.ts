@@ -8,7 +8,7 @@ import { ICon } from '../../interfaces/cons.interface';
 export class ConsService {
     constructor(private apiService: ApiService) { }
 
-    public getCons(): Observable<ICon> {
+    public getCons(): Observable<ICon[]> {
         return this.apiService.get(
             'Cons/GetCons',
             {
@@ -18,10 +18,19 @@ export class ConsService {
     }
 
     public createCon(con: ICon): Observable<ICon> {
-        return this.apiService.get(
+        return this.apiService.post(
             'Cons/CreateCon',
             {
-                params: { con: con }
+                body: con
+            }
+        );
+    }
+
+    public refreshCons(): Observable<ICon[]> {
+        return this.apiService.get(
+            'Cons/GetCons',
+            {
+                params: { }
             }
         );
     }

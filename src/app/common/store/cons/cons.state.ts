@@ -16,11 +16,11 @@ export function reducer(state: State = initialState, action: ConsActions.Any): S
 
     switch(action.type) {
         case ConsActions.GetConsSuccess.Type: {
-            return { ...state, ...{ list: action.response, selectedCon: null } }
+            return { ...state, ...{ list: action.response.list, selectedCon: action.response.list[0] } }
         }
 
         case ConsActions.CreateConSuccess.Type: {
-            return { ...state, ...{ list: action.response.list, selectedCon: action.response.new } }
+            return { ...state, ...{ list: action.response.list, selectedCon: action.response.list[action.response.selectedCon] } }
         }
 
         case ConsActions.SelectCon.Type: {
@@ -32,7 +32,7 @@ export function reducer(state: State = initialState, action: ConsActions.Any): S
         }
 
         case ConsActions.RefreshConsSuccess.Type: {
-            return { ...state, ...{ list: action.response, selectedCon: null } }
+            return { ...state, ...{ list: action.response.list } }
         }
 
         default: {

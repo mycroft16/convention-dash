@@ -1,1 +1,38 @@
 <button mat-flat-button (click)="openAddConDialog()">Add Convention <i class="fas fa-plus-circle"></i></button>
+
+<mat-table [dataSource]="(cons | async)" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="index">
+    <mat-header-cell *matHeaderCellDef>#</mat-header-cell>
+    <mat-cell *matCellDef="let element; let i = index">{{ (i + 1) }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="event">
+    <mat-header-cell *matHeaderCellDef>Event</mat-header-cell>
+    <mat-cell *matCellDef="let con">{{ con.name }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="start">
+    <mat-header-cell *matHeaderCellDef>Start Date</mat-header-cell>
+    <mat-cell *matCellDef="let con">{{ con.startDisplay }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="end">
+    <mat-header-cell *matHeaderCellDef>End Date</mat-header-cell>
+    <mat-cell *matCellDef="let con">{{ con.endDisplay }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="days">
+    <mat-header-cell *matHeaderCellDef>Days</mat-header-cell>
+    <mat-cell *matCellDef="let con">{{ con.days.length }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="status">
+    <mat-header-cell *matHeaderCellDef>Status</mat-header-cell>
+    <mat-cell *matCellDef="let con">{{ con.statusString }}</mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let myRowData; columns: displayedColumns; let i = index"></mat-row>
+
+</mat-table>

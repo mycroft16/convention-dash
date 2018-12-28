@@ -1,6 +1,9 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { AddConDialogComponent } from './add-con-dialog/add-con-dialog.component';
+import { ICon } from '../../interfaces/cons.interface';
+import { Observable } from 'rxjs';
+import { AppStore } from '../../store/app.store';
 
 @Component({
   selector: 'app-cons',
@@ -10,7 +13,12 @@ import { AddConDialogComponent } from './add-con-dialog/add-con-dialog.component
 })
 export class ConsComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) { }
+  public cons: Observable<ICon[]> = null;
+  public displayedColumns: string[] = [ 'index', 'event', 'start', 'end', 'days', 'status' ];
+
+  constructor(public dialog: MatDialog, private store: AppStore) {
+    this.cons = this.store.select(state => state.cons.list);
+  }
 
   openAddConDialog() {
     this.dialog.open(AddConDialogComponent, {
@@ -20,6 +28,7 @@ export class ConsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.store.dispatch(factory => factory.cons.getCons());
   }
 
 }

@@ -4,7 +4,7 @@ import {
     MatButtonModule, MatButtonToggleModule, MatCardModule, MatCheckboxModule, MatDatepickerModule, MatDialogModule,
     MatFormFieldModule, MatGridListModule, MatIconModule, MatInputModule, MatListModule, MatMenuModule, MatNativeDateModule,
     MatPaginatorModule, MatProgressBarModule, MatProgressSpinnerModule, MatRadioModule, MatSelectModule, MatSidenavModule,
-    MatSliderModule, MatSlideToggleModule, MatSnackBarModule, MatTabsModule, MatToolbarModule, MatTooltipModule,
+    MatSliderModule, MatSlideToggleModule, MatSnackBarModule, MatTableModule, MatTabsModule, MatToolbarModule, MatTooltipModule,
     MatAutocompleteModule
 } from '@angular/material';
 
@@ -34,6 +34,7 @@ import {
         MatSlideToggleModule,
         MatSliderModule,
         MatSnackBarModule,
+        MatTableModule,
         MatTabsModule,
         MatToolbarModule,
         MatTooltipModule,

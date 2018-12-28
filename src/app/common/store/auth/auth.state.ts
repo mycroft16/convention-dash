@@ -5,7 +5,8 @@ export interface State {
 }
 
 export const initialState: State = {
-    authToken: null
+    // authToken: null
+    authToken: "Bearer MXx8YWRtaW58fDE1NDU5MDg2Nzh8fDE="
 }
 
 export function reducer(state: State = initialState, action: AuthActions.Any): State {

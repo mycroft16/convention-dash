@@ -10,7 +10,7 @@
       <br /><br />
       <mat-list-item>
         <mat-form-field>
-          <input matInput [matDatepicker]="startDatepicker" formControlName="startDate" placeholder="Start date" autocomplete="nope" />
+          <input matInput [matDatepicker]="startDatepicker" formControlName="startDate" placeholder="Start date" autocomplete="nope" (focus)="startDatepicker.open()" />
           <mat-datepicker-toggle matSuffix [for]="startDatepicker"></mat-datepicker-toggle>
           <mat-datepicker #startDatepicker></mat-datepicker>
         </mat-form-field>
@@ -18,7 +18,7 @@
       <br /><br />
       <mat-list-item>
           <mat-form-field>
-            <input matInput [matDatepicker]="endDatepicker" formControlName="endDate" placeholder="End date" autocomplete="nope" />
+            <input matInput [matDatepicker]="endDatepicker" formControlName="endDate" placeholder="End date" autocomplete="nope" (focus)="endDatepicker.open()" />
             <mat-datepicker-toggle matSuffix [for]="endDatepicker"></mat-datepicker-toggle>
             <mat-datepicker #endDatepicker></mat-datepicker>
           </mat-form-field>

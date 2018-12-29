@@ -1,8 +1,11 @@
 :host {
     mat-dialog-content {
-        height: 28vh !important;
+        height: 27vh !important;
         mat-form-field {
             width: 100%;
+            &.halfWidth {
+                width: 50% !important;
+            }
         }
     }
 }

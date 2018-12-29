@@ -8,7 +8,7 @@ export interface ICon {
     name: string;
     startDate: string;
     endDate: string;
-    status: number;
+    status: string;
     days?: IDay[];
     startDisplay?: string;
     endDisplay?: string;

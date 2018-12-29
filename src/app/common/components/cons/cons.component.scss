@@ -1,6 +1,8 @@
 :host {
     button {
+        left: calc(100% - 180px);
         margin: 15px;
+        position: relative;
     }
     mat-table {
         margin: 0 15px;

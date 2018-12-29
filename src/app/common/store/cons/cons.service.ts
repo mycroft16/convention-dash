@@ -51,7 +51,7 @@ export class ConsService {
             const start = moment(cons[i].startDate);
             const end = moment(cons[i].endDate);
             const dayCount = end.diff(start, 'days');
-            const statusString = (cons[i].status === 1) ? "Active" : "Planning";
+            const statusString = (cons[i].status === "1") ? "Active" : "Planning";
             const startDisplay = moment(cons[i].startDate).format('MM/DD/YYYY');
             const endDisplay = moment(cons[i].endDate).format('MM/DD/YYYY');
 

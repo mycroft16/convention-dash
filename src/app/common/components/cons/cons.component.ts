@@ -14,7 +14,7 @@ import { AppStore } from '../../store/app.store';
 export class ConsComponent implements OnInit {
 
   public cons: Observable<ICon[]> = null;
-  public displayedColumns: string[] = [ 'index', 'event', 'start', 'end', 'days', 'status' ];
+  public displayedColumns: string[] = [ 'index', 'event', 'start', 'end', 'days', 'status', 'actions' ];
 
   constructor(public dialog: MatDialog, private store: AppStore) {
     this.cons = this.store.select(state => state.cons.list);
@@ -25,6 +25,14 @@ export class ConsComponent implements OnInit {
       height: '400px',
       width: '400px'
     });
+  }
+
+  editCon(id: number): void {
+    console.log('edit con: ', id);
+  }
+
+  deleteCon(id: number): void {
+    console.log('delete con: ', id);
   }
 
   ngOnInit() {

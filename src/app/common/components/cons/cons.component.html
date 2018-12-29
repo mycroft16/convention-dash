@@ -32,6 +32,14 @@
     <mat-cell *matCellDef="let con">{{ con.statusString }}</mat-cell>
   </ng-container>
 
+  <ng-container matColumnDef="actions">
+    <mat-header-cell *matHeaderCellDef>&nbsp;</mat-header-cell>
+    <mat-cell *matCellDef="let con">
+      <button mat-raised-button (click)="editCon(con.id)"><i class="fas fa-pencil-alt fa-fw"></i></button>
+      <button mat-raised-button color="warn" (click)="deleteCon(con.id)"><i class="fas fa-trash-alt fa-fw"></i></button>
+    </mat-cell>
+  </ng-container>
+
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
   <mat-row *matRowDef="let myRowData; columns: displayedColumns; let i = index"></mat-row>
 

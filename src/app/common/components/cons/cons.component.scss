@@ -6,5 +6,8 @@
     }
     mat-table {
         margin: 0 15px;
+        mat-row:hover {
+            background-color: #555555;
+        }
     }
 }

@@ -35,6 +35,10 @@ export function reducer(state: State = initialState, action: ConsActions.Any): S
             return { ...state, ...{ list: action.response.list } }
         }
 
+        case ConsActions.DeleteConSuccess.Type: {
+            return { ...state, ...{ list: action.response.list, selectedCon: action.response.list[action.response.selectedCon] } }
+        }
+
         default: {
             return state;
         }

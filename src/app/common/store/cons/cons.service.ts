@@ -43,6 +43,17 @@ export class ConsService {
         );
     }
 
+    public deleteCon(conId: number): Observable<ICons> {
+        return this.apiService.post(
+            'Cons/DeleteCon',
+            {
+                body: { conId: conId }
+            }
+        ).pipe(
+            map(response => this.getConDays(response))
+        )
+    }
+
 
     // FUNCTIONS
     private getConDays(response: ICons): ICons {

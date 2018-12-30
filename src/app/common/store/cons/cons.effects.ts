@@ -33,13 +33,23 @@ export class ConsEffects {
 
     @Effect()
     public refreshCons: Observable<Action> = this.actions
-            .pipe(
-              ofType(ConsActions.RefreshCons.Type),
-              switchMap((action: ConsActions.RefreshCons) =>
+        .pipe(
+            ofType(ConsActions.RefreshCons.Type),
+            switchMap((action: ConsActions.RefreshCons) =>
                 this.service.refreshCons()
                     .pipe(map(response => this.store.create(factory => factory.cons.refreshConsSuccess(response))))
-              )  
-            );
+            )  
+        );
+    
+    @Effect()
+    public deleteDon: Observable<Action> = this.actions
+        .pipe(
+            ofType(ConsActions.DeleteCon.Type),
+            switchMap((action: ConsActions.DeleteCon) =>
+                this.service.deleteCon(action.conId)
+                    .pipe(map(response => this.store.create(factory => factory.cons.deleteConSuccess(response))))
+            )
+        );
 
     constructor(
         private actions: Actions,

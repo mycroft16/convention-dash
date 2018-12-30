@@ -33,7 +33,6 @@ export class ConsComponent implements OnInit {
   }
 
   deleteCon(con: ICon): void {
-    console.log('delete con: ', con);
     this.bottomSheet.open(DeleteConSheetComponent, { data: { con: con } } );
   }
 

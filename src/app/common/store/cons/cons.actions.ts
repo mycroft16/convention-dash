@@ -18,6 +18,10 @@ export class ActionFactory {
     public clearSelectedCon(): ClearSelectedCon {
         return new ClearSelectedCon();
     }
+
+    public deleteCon(conId: number): DeleteCon {
+        return new DeleteCon(conId);
+    }
 }
 
 export class InternalActionFactory {
@@ -35,6 +39,10 @@ export class InternalActionFactory {
 
     public refreshConsSuccess(response: ICons): RefreshConsSuccess {
         return new RefreshConsSuccess(response);
+    }
+
+    public deleteConSuccess(response: ICons): DeleteConSuccess {
+        return new DeleteConSuccess(response);
     }
 }
 
@@ -83,4 +91,16 @@ export class RefreshConsSuccess implements Action {
     constructor(public readonly response) { }
 }
 
-export type Any = GetCons | GetConsSuccess | CreateCon | CreateConSuccess | SelectCon | ClearSelectedCon | RefreshCons | RefreshConsSuccess;
+export class DeleteCon implements Action {
+    public static readonly Type = '[Cons] Delete Con';
+    public readonly type = DeleteCon.Type;
+    constructor(public readonly conId) { }
+}
+
+export class DeleteConSuccess implements Action {
+    public static readonly Type = '[Cons] Delete Con Success';
+    public readonly type = DeleteConSuccess.Type;
+    constructor(public readonly response) { }
+}
+
+export type Any = GetCons | GetConsSuccess | CreateCon | CreateConSuccess | SelectCon | ClearSelectedCon | RefreshCons | RefreshConsSuccess | DeleteCon | DeleteConSuccess;

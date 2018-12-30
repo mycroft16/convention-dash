@@ -1,0 +1,16 @@
+:host {
+    .linkContainer {
+        border-bottom: 1px solid #cccccc;
+        text-align: center;
+        a {
+            color: #474747;
+            display: block;
+            font-size: 13px;
+            padding: 15px 0 7px;
+            width: 100%;
+            i {
+                font-size: 24px;
+            }
+        }
+    }
+}

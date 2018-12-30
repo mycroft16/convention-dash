@@ -3,39 +3,14 @@
   <div class='logoContainer'></div>
 
   <div class='innerContainer'>
-    <div class='linkContainer'>
-      <a href='/dashboard' mat-menu-item>
-        <i class='far fa-home fa-fw'></i><br />
-        Home
-      </a>
-    </div>
-    <div class='linkContainer'>
-      <a href='/cons' mat-menu-item>
-        <i class='far fa-calendar-week fa-fw'></i><br />
-        Cons
-      </a>
-    </div>
-    <div class='linkContainer'>
-      <a href='/guests' mat-menu-item>
-        <i class='far fa-user-secret fa-fw'></i><br />
-        Guests
-      </a>
-    </div>
-    <div class='linkContainer'>
-      <a href='/vendors' mat-menu-item>
-        <i class='far fa-comments-dollar fa-fw'></i><br />
-        Vendors
-      </a>
-    </div>
+    <fanx-nav-link [route]="'dashboard'" [icon]="'far fa-home fa-fw'" [text]="'Home'"></fanx-nav-link>
+    <fanx-nav-link [route]="'cons'" [icon]="'far fa-calendar-week fa-fw'" [text]="'Cons'"></fanx-nav-link>
+    <fanx-nav-link [route]="'guests'" [icon]="'far fa-user-secret fa-fw'" [text]="'Guests'"></fanx-nav-link>
+    <fanx-nav-link [route]="'vendors'" [icon]="'far fa-comments-dollar fa-fw'" [text]="'Vendors'"></fanx-nav-link>
   </div>
 
   <div class='innerContainer fixBottom'>
-    <div class='linkContainer'>
-      <a href='/settings' mat-menu-item>
-        <i class='far fa-cogs fa-fw'></i><br />
-        Settings
-      </a>
-    </div>
+    <fanx-nav-link [route]="'settings'" [icon]="'far fa-cogs fa-fw'" [text]="'Settings'"></fanx-nav-link>
     <div class='linkContainer'>
       <a href='#' mat-menu-item (click)='doSignOut()'>
         <i class='far fa-sign-out-alt fa-fw'></i><br />

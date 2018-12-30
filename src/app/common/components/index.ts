@@ -5,6 +5,7 @@ import { GuestsComponent } from './guests/guests.component';
 import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './login/login.component';
 import { NavigationComponent } from './navigation/navigation.component';
+import { NavLinkComponent } from './navigation/nav-link/nav-link.component';
 import { SettingsComponent } from './settings/settings.component';
 import { VendorsComponent } from './vendors/vendors.component';
 
@@ -16,6 +17,7 @@ export const COMPONENTS = [
     HeaderComponent,
     LoginComponent,
     NavigationComponent,
+    NavLinkComponent,
     SettingsComponent,
     VendorsComponent
 ]

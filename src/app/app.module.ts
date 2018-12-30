@@ -18,6 +18,7 @@ import { STORES, EFFECTS, PROVIDERS, metaReducers } from './common/store';
 
 // ENTRY COMPONENTS
 import { AddConDialogComponent } from './common/components/cons/add-con-dialog/add-con-dialog.component';
+import { DeleteConSheetComponent } from './common/components/cons/delete-con-sheet/delete-con-sheet.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { AddConDialogComponent } from './common/components/cons/add-con-dialog/a
     ...COMPONENTS
   ],
   entryComponents: [
-    AddConDialogComponent
+    AddConDialogComponent,
+    DeleteConSheetComponent
   ],
   imports: [
     AppRoutingModule,

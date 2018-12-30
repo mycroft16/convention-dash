@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material';
+import { MatBottomSheet, MatDialog } from '@angular/material';
 import { AddConDialogComponent } from './add-con-dialog/add-con-dialog.component';
+import { DeleteConSheetComponent } from './delete-con-sheet/delete-con-sheet.component';
 import { ICon } from '../../interfaces/cons.interface';
 import { Observable } from 'rxjs';
 import { AppStore } from '../../store/app.store';
@@ -16,7 +17,7 @@ export class ConsComponent implements OnInit {
   public cons: Observable<ICon[]> = null;
   public displayedColumns: string[] = [ 'index', 'event', 'start', 'end', 'days', 'status', 'actions' ];
 
-  constructor(public dialog: MatDialog, private store: AppStore) {
+  constructor(public bottomSheet: MatBottomSheet, public dialog: MatDialog, private store: AppStore) {
     this.cons = this.store.select(state => state.cons.list);
   }
 
@@ -27,12 +28,13 @@ export class ConsComponent implements OnInit {
     });
   }
 
-  editCon(id: number): void {
+  editCon(id: ICon): void {
     console.log('edit con: ', id);
   }
 
-  deleteCon(id: number): void {
-    console.log('delete con: ', id);
+  deleteCon(con: ICon): void {
+    console.log('delete con: ', con);
+    this.bottomSheet.open(DeleteConSheetComponent, { data: { con: con } } );
   }
 
   ngOnInit() {

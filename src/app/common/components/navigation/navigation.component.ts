@@ -11,8 +11,8 @@ export class NavigationComponent implements OnInit {
 
   constructor(private router: Router) { }
 
-  doSignOut() {
-    console.log('sign out');
+  doSignOut(event) {
+    event.preventDefault();
     this.router.navigate(['login']);
   }
 

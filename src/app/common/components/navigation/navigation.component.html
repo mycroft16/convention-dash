@@ -12,7 +12,7 @@
   <div class='innerContainer fixBottom'>
     <fanx-nav-link [route]="'settings'" [icon]="'far fa-cogs fa-fw'" [text]="'Settings'"></fanx-nav-link>
     <div class='linkContainer'>
-      <a href='#' mat-menu-item (click)='doSignOut()'>
+      <a href='#' mat-menu-item (click)='doSignOut($event)'>
         <i class='far fa-sign-out-alt fa-fw'></i><br />
         Sign Out
       </a>

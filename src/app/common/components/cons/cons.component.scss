@@ -6,6 +6,9 @@
     }
     mat-table {
         margin: 0 15px;
+        .mat-column-index {
+            max-width: 85px;
+        }
         mat-row:hover {
             background-color: #555555;
         }

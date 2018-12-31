@@ -1,6 +1,12 @@
 :host {
     display: block;
-    mat-toolbar {
+    mat-toolbar-row:first-child {
         height: 52px;
+    }
+    mat-toolbar-row:last-child {
+        background-color: #810036;
+        font-size: 16px;
+        font-weight: 400;
+        height: 40px;
     }
 }

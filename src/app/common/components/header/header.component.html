@@ -1,1 +1,18 @@
-<mat-toolbar color="primary">Header</mat-toolbar>
+<mat-toolbar color="primary">
+    <mat-toolbar-row><i [class]="(title | async).icon"></i> {{ (title | async).text }}</mat-toolbar-row>
+    <mat-toolbar-row>
+        <div>
+            <form [formGroup]="selectConForm">
+                <mat-form-field [floatLabel]="'never'">
+                    <mat-select placeholder="Select a Con" formControlName="selectCon" (selectionChange)="selectCon($event)">
+                        <ng-container *ngIf="conList | async">
+                            <mat-option *ngFor="let con of (conList | async); let i = index; " [value]="con.id">
+                                {{ con.name }}
+                            </mat-option>
+                        </ng-container>
+                    </mat-select>
+                </mat-form-field>
+            </form>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>

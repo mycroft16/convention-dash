@@ -4,11 +4,15 @@ import { ICon } from '../../interfaces/cons.interface';
 export interface State {
     list: ICon[];
     selectedCon: ICon;
+    selectedId: number;
+    selectedIndex: number;
 }
 
 export const initialState: State = {
     list: null,
-    selectedCon: null
+    selectedCon: null,
+    selectedId: null,
+    selectedIndex: null
 }
 
 export function reducer(state: State = initialState, action: ConsActions.Any): State {
@@ -16,11 +20,11 @@ export function reducer(state: State = initialState, action: ConsActions.Any): S
 
     switch(action.type) {
         case ConsActions.GetConsSuccess.Type: {
-            return { ...state, ...{ list: action.response.list, selectedCon: action.response.list[0] } }
+            return { ...state, ...{ list: action.response.list } }
         }
 
         case ConsActions.CreateConSuccess.Type: {
-            return { ...state, ...{ list: action.response.list, selectedCon: action.response.list[action.response.selectedCon] } }
+            return { ...state, ...{ list: action.response.list } }
         }
 
         case ConsActions.UpdateConSuccess.Type: {
@@ -28,11 +32,18 @@ export function reducer(state: State = initialState, action: ConsActions.Any): S
         }
 
         case ConsActions.SelectCon.Type: {
-            return { ...state, ...{ selectedCon: state.list[action.conIndex] } }
+            let selectedIndex: number = null;
+            for (let i = 0; i < state.list.length; i++) {
+                if (state.list[i].id === action.conIndex) {
+                    selectedIndex = i;
+                    break;
+                }
+            }
+            return { ...state, ...{ selectedCon: state.list[selectedIndex], selectedId: action.conIndex, selectedIndex: selectedIndex } }
         }
 
         case ConsActions.ClearSelectedCon.Type: {
-            return { ...state, ...{ selectedCon: null } }
+            return { ...state, ...{ selectedCon: null, selectedId: null, selectedIndex: null } }
         }
 
         case ConsActions.RefreshConsSuccess.Type: {
@@ -40,7 +51,7 @@ export function reducer(state: State = initialState, action: ConsActions.Any): S
         }
 
         case ConsActions.DeleteConSuccess.Type: {
-            return { ...state, ...{ list: action.response.list, selectedCon: action.response.list[action.response.selectedCon] } }
+            return { ...state, ...{ list: action.response.list } }
         }
 
         default: {

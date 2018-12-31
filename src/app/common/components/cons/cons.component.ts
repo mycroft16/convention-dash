@@ -23,13 +23,18 @@ export class ConsComponent implements OnInit {
 
   openAddConDialog() {
     this.dialog.open(AddConDialogComponent, {
+      data: { type: 'add' },
       height: '400px',
       width: '400px'
     });
   }
 
-  editCon(id: ICon): void {
-    console.log('edit con: ', id);
+  editCon(id: number): void {
+    this.dialog.open(AddConDialogComponent, {
+      data: { type: 'edit', id: id },
+      height: '400px',
+      width: '400px'
+    });
   }
 
   deleteCon(con: ICon): void {

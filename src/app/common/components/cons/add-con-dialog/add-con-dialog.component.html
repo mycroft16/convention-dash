@@ -1,6 +1,6 @@
 <h1 mat-dialog-title>Add FanX Convention</h1>
 <mat-dialog-content>
-  <form [formGroup]="addConForm" id="ngForm" #documentEditForm="ngForm" (ngSubmit)="createCon()">
+  <form [formGroup]="addConForm" id="ngForm" #documentEditForm="ngForm" (ngSubmit)="saveCon()">
     <input type="hidden" formControlName="createdBy" />
     <mat-list>
       <mat-list-item>
@@ -31,5 +31,5 @@
 <mat-dialog-actions align="end">
   <button mat-flat-button color="warn" mat-dialog-close>Cancel</button>
   &nbsp;&nbsp;
-  <button mat-flat-button color="primary" type="submit" form="ngForm" [disabled]="!documentEditForm.form.valid">Create <i class="fas fa-save fa-fw"></i></button>
+  <button mat-flat-button color="primary" type="submit" form="ngForm" [disabled]="!documentEditForm.form.valid">{{ saveButtonText }} <i class="fas fa-save fa-fw"></i></button>
 </mat-dialog-actions>

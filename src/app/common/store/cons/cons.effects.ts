@@ -32,6 +32,16 @@ export class ConsEffects {
         );
 
     @Effect()
+    public updateCon: Observable<Action> = this.actions
+        .pipe(
+            ofType(ConsActions.UpdateCon.Type),
+            switchMap((action: ConsActions.UpdateCon) =>
+                this.service.updateCon(action.con)
+                    .pipe(map(response => this.store.create(factory => factory.cons.updateConSuccess(response))))
+            )
+        );
+
+    @Effect()
     public refreshCons: Observable<Action> = this.actions
         .pipe(
             ofType(ConsActions.RefreshCons.Type),

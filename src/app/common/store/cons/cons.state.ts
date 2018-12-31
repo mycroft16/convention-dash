@@ -23,6 +23,10 @@ export function reducer(state: State = initialState, action: ConsActions.Any): S
             return { ...state, ...{ list: action.response.list, selectedCon: action.response.list[action.response.selectedCon] } }
         }
 
+        case ConsActions.UpdateConSuccess.Type: {
+            return { ...state, ...{ list: action.response.list } }
+        }
+
         case ConsActions.SelectCon.Type: {
             return { ...state, ...{ selectedCon: state.list[action.conIndex] } }
         }

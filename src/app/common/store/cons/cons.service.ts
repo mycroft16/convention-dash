@@ -32,6 +32,17 @@ export class ConsService {
         );
     }
 
+    public updateCon(con: ICon): Observable<ICons> {
+        return this.apiService.post(
+            'Cons/UpdateCon',
+            {
+                body: con
+            }
+        ).pipe(
+            map(response => this.getConDays(response))
+        )
+    }
+
     public refreshCons(): Observable<ICons> {
         return this.apiService.get(
             'Cons/RefreshCons',

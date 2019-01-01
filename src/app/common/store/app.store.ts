@@ -14,26 +14,33 @@ import * as ConsState from './cons/cons.state';
 import * as DropdownActions from './dropdowns/dropdowns.actions';
 import * as DropdownState from './dropdowns/dropdowns.state';
 
+import * as GuestsActions from './guests/guests.actions';
+import * as GuestsState from './guests/guests.state';
+
 export type AuthState = AuthState.State;
 export type ConsState = ConsState.State;
 export type DropdownState = DropdownState.State;
+export type GuestsState = GuestsState.State;
 
 export interface ActionFactory {
     readonly auth: AuthActions.ActionFactory;
     readonly cons: ConsActions.ActionFactory;
     readonly dropdowns: DropdownActions.ActionFactory;
+    readonly guests: GuestsActions.ActionFactory;
 }
 
 export interface InternalActionFactory {
     readonly auth: AuthActions.InternalActionFactory;
     readonly cons: ConsActions.InternalActionFactory;
     readonly dropdowns: DropdownActions.InternalActionFactory;
+    readonly guests: GuestsActions.InternalActionFactory;
 }
 
 export interface AppState {
     readonly auth: AuthState;
     readonly cons: ConsState;
     readonly dropdowns: DropdownState;
+    readonly guests: GuestsState;
 }
 
 export interface AppReducers {
@@ -43,7 +50,8 @@ export interface AppReducers {
 export const reducers: AppReducers = {
     auth: AuthState.reducer,
     cons: ConsState.reducer,
-    dropdowns: DropdownState.reducer
+    dropdowns: DropdownState.reducer,
+    guests: GuestsState.reducer
 }
 
 export type ActionFactoryMapper = (factory: ActionFactory) => Action;
@@ -101,12 +109,14 @@ export class AppStore {
         auth: new AuthActions.ActionFactory,
         cons: new ConsActions.ActionFactory,
         dropdowns: new DropdownActions.ActionFactory,
+        guests: new GuestsActions.ActionFactory
     }
 
     private readonly internalActionFactory: InternalActionFactory = {
         auth: new AuthActions.InternalActionFactory,
         cons: new ConsActions.InternalActionFactory,
-        dropdowns: new DropdownActions.InternalActionFactory
+        dropdowns: new DropdownActions.InternalActionFactory,
+        guests: new GuestsActions.InternalActionFactory
     }
 
 }

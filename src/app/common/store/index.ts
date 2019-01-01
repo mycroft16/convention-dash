@@ -18,6 +18,10 @@ import { DropdownEffects } from './dropdowns/dropdowns.effects';
 import { DropdownService } from './dropdowns/dropdowns.service';
 import * as DropdownState from './dropdowns/dropdowns.state';
 
+import { GuestsEffects } from './guests/guests.effects';
+import { GuestsService } from './guests/guests.service';
+import * as GuestsState from './guests/guests.state';
+
 export const metaReducers: MetaReducer<AppState>[] = [
     storeFreeze
 ]
@@ -27,17 +31,20 @@ export const PROVIDERS: any[] = [
     AuthService,
     ConsService,
     DropdownService,
+    GuestsService,
     AppStore
 ]
 
 export const EFFECTS: ModuleWithProviders = EffectsModule.forRoot([
     AuthEffects,
     ConsEffects,
-    DropdownEffects
+    DropdownEffects,
+    GuestsEffects
 ]);
 
 export const STORES: any = {
     auth: AuthState.reducer,
     cons: ConsState.reducer,
-    dropdowns: DropdownState.reducer
+    dropdowns: DropdownState.reducer,
+    guests: GuestsState.reducer
 }

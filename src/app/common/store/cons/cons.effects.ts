@@ -12,7 +12,7 @@ import * as ConsActions from './cons.actions';
 export class ConsEffects {
 
     @Effect()
-    public loadProperties: Observable<Action> = this.actions
+    public getCons: Observable<Action> = this.actions
         .pipe(
             ofType(ConsActions.GetCons.Type),
             switchMap((action: ConsActions.GetCons) =>

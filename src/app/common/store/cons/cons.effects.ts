@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
+import { map, mergeMap, switchMap } from 'rxjs/operators';
 import { Action } from '@ngrx/store';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 
@@ -58,6 +58,20 @@ export class ConsEffects {
             switchMap((action: ConsActions.DeleteCon) =>
                 this.service.deleteCon(action.conId)
                     .pipe(map(response => this.store.create(factory => factory.cons.deleteConSuccess(response))))
+            )
+        );
+
+    @Effect()
+    public selectCon: Observable<Action> = this.actions
+        .pipe(
+            ofType(ConsActions.SelectCon.Type),
+            switchMap((action: ConsActions.SelectCon) =>
+                this.service.selectCon(action.conIndex)
+                    .pipe(
+                        mergeMap(response => [
+                            this.store.create(factory => factory.guests.getGuestListInternal(response))
+                        ])
+                    )
             )
         );
 

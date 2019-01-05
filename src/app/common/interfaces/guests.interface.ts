@@ -6,6 +6,7 @@ export interface IGuest {
     category: string;
     faceShot: string;
     billBoard: string;
+    sizzleReel: string;
     bio: string;
     doesPhotoOp: boolean;
     pricePhotoOp: number;
@@ -13,6 +14,7 @@ export interface IGuest {
     priceAutograph: number;
     doesSelfie: boolean;
     priceSelfie: number;
+    status: string;
     previousCons: IPreviousCon[];
     schedule: IGuestSchedule[];
 }

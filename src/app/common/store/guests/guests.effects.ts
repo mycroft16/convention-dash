@@ -20,6 +20,16 @@ export class GuestsEffects {
                     .pipe(map(response => this.store.create(factory => factory.guests.getGuestListSuccess(response))))
             )
         );
+    
+    @Effect()
+    public getGuestListInternal: Observable<Action> = this.actions
+        .pipe(
+            ofType(GuestsActions.GetGuestListInternal.Type),
+            switchMap((action: GuestsActions.GetGuestListInternal) =>
+                this.service.getGuestList(action.conId)
+                    .pipe(map(response => this.store.create(factory => factory.guests.getGuestListSuccess(response))))
+            )
+        );
 
     constructor(
         private actions: Actions,

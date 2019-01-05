@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 
 import { ApiService } from '../api/api.service';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { ICons, ICon } from '../../interfaces/cons.interface';
+import { AppStore } from '../../store/app.store';
 import * as moment from 'moment';
 
 @Injectable()
 export class ConsService {
-    constructor(private apiService: ApiService) { }
+    constructor(private apiService: ApiService, private store: AppStore) { }
 
     public getCons(): Observable<ICons> {
         return this.apiService.get(
@@ -63,6 +64,10 @@ export class ConsService {
         ).pipe(
             map(response => this.getConDays(response))
         )
+    }
+
+    public selectCon(conIndex: number): Observable<number> {
+        return of(conIndex);
     }
 
 

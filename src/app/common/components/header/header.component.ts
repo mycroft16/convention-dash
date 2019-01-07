@@ -32,7 +32,7 @@ export class HeaderComponent implements OnInit {
     // console.log(this.cons);
   }
 
-  private selectCon(event) {
+  public selectCon(event) {
     console.log('change to: ', event.value);
     this.store.dispatch(factory => factory.cons.selectCon(event.value));
   }

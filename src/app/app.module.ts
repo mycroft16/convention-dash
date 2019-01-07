@@ -18,7 +18,9 @@ import { STORES, EFFECTS, PROVIDERS, metaReducers } from './common/store';
 
 // ENTRY COMPONENTS
 import { AddConDialogComponent } from './common/components/cons/add-con-dialog/add-con-dialog.component';
+import { AddGuestDialogComponent } from './common/components/guests/add-guest-dialog/add-guest-dialog.component';
 import { DeleteConSheetComponent } from './common/components/cons/delete-con-sheet/delete-con-sheet.component';
+// import { DeleteGuestSheetComponent } from './common/components/guests/delete-guest-sheet/delete-guest-sheet.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { DeleteConSheetComponent } from './common/components/cons/delete-con-she
   ],
   entryComponents: [
     AddConDialogComponent,
-    DeleteConSheetComponent
+    AddGuestDialogComponent,
+    DeleteConSheetComponent,
+    // DeleteGuestSheetComponent
   ],
   imports: [
     AppRoutingModule,

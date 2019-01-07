@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { MatBottomSheet, MatDialog } from '@angular/material';
+import { AddGuestDialogComponent } from './add-guest-dialog/add-guest-dialog.component';
 import { Observable } from 'rxjs';
 import { IGuest } from '../../interfaces/guests.interface';
 import { AppStore } from '../../store/app.store';
@@ -19,8 +20,24 @@ export class GuestsComponent implements OnInit {
     this.guestList = this.store.select(store => store.guests.guestList);
   }
 
-  openAddGuestDialog() {
-    
+  public openAddGuestDialog(): void {
+    this.dialog.open(AddGuestDialogComponent, {
+      data: { type: 'add' },
+      height: '560px',
+      width: '650px'
+    });
+  }
+
+  public editGuest(id: number): void {
+    this.dialog.open(AddGuestDialogComponent, {
+      data: { type: 'edit', id: id },
+      height: '560px',
+      width: '650px'
+    });
+  }
+
+  public deleteGuest(guest: IGuest): void {
+    // this.bottomSheet.open(DeleteGuestSheetComponent, { data: { guest: guest } } );
   }
 
   ngOnInit() {

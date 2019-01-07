@@ -21,7 +21,7 @@ export class ConsComponent implements OnInit {
     this.cons = this.store.select(state => state.cons.list);
   }
 
-  openAddConDialog() {
+  public openAddConDialog(): void {
     this.dialog.open(AddConDialogComponent, {
       data: { type: 'add' },
       height: '400px',
@@ -29,7 +29,7 @@ export class ConsComponent implements OnInit {
     });
   }
 
-  editCon(id: number): void {
+  public editCon(id: number): void {
     this.dialog.open(AddConDialogComponent, {
       data: { type: 'edit', id: id },
       height: '400px',

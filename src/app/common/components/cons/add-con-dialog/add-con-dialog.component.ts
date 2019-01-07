@@ -13,7 +13,7 @@ import { AppStore } from 'src/app/common/store/app.store';
 })
 export class AddConDialogComponent implements OnInit {
 
-  public saveButtonText = 'Create';
+  public saveButtonText: string = 'Create';
   public type: string = 'add';
 
   constructor(

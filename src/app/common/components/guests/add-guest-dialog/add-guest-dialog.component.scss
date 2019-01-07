@@ -1,0 +1,53 @@
+:host {
+    mat-dialog-content {
+        height: 45vh !important;
+        mat-form-field {
+            width: 100%;
+            &.halfWidth {
+                width: 50% !important;
+            }
+            &.thirdWidth {
+                width: 33.33% !important;
+            }
+        }
+        div.halfWidth {
+            width: 50% !important;
+        }
+        [type="file"] {
+            height: 0px;
+            overflow: hidden;
+            width: 0px;
+        }
+
+        [type="file"] + label {
+            border: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+            border-radius: 0px;
+            color: rgba(255, 255, 255, 0.7);
+            cursor: pointer;
+            display: inline-block;
+            font-weight: 400;
+            height: 25px;
+            outline: none;
+            position: relative;
+            transition: all 0.3s;
+            vertical-align: middle;
+            width: 100%;
+
+            &:after {
+                border-bottom: 0px;
+                color: rgba(255, 255, 255, 0.7);
+                content: '\f382';
+                float: right;
+                font-family: 'Font Awesome 5 Pro';
+                font-size: 16px;
+                margin-right: 5px;
+            }
+            &:hover {
+                border-bottom: 1px solid #c2185b;
+                color: #ffffff;
+                font-size: 11px;
+            }
+        }
+    }
+}

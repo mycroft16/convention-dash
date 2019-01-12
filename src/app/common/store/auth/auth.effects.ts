@@ -27,7 +27,7 @@ export class AuthEffects {
         .pipe(
             ofType(AuthActions.GetLoginToken.Type),
             switchMap((action: AuthActions.GetLoginToken) =>
-                this.service.getLoginToken()
+                this.service.getLoginToken(action.username, action.password)
                     .pipe(map(response => this.store.create(factory => factory.auth.getLoginTokenSuccess(response))))
             )
         );

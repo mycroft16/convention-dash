@@ -2,8 +2,8 @@ import { Action } from '@ngrx/store';
 import { IGuest } from '../../interfaces/guests.interface';
 
 export class ActionFactory {
-    public getGuestList(conId: number): GetGuestList {
-        return new GetGuestList(conId);
+    public getGuestList(): GetGuestList {
+        return new GetGuestList();
     }
 
     public selectGuest(guestId: number): SelectGuest {
@@ -14,15 +14,19 @@ export class ActionFactory {
         return new ClearSelectedGuest();
     }
 
+    public createGuest(guest: IGuest): CreateGuest {
+        return new CreateGuest(guest);
+    }
+
 }
 
 export class InternalActionFactory {
-    public getGuestListInternal(conId: number): GetGuestListInternal {
-        return new GetGuestListInternal(conId);
-    }
-
     public getGuestListSuccess(response: IGuest[]): GetGuestListSuccess {
         return new GetGuestListSuccess(response);
+    }
+
+    public createGuestSuccess(response: IGuest[]): CreateGuestSuccess {
+        return new CreateGuestSuccess(response);
     }
 
 }
@@ -30,13 +34,6 @@ export class InternalActionFactory {
 export class GetGuestList implements Action {
     public static readonly Type = '[Guests] Get Guest List';
     public readonly type = GetGuestList.Type;
-    constructor(public readonly conId) { }
-}
-
-export class GetGuestListInternal implements Action {
-    public static readonly Type = '[Guests] Get Guest List Internal';
-    public readonly type = GetGuestListInternal.Type;
-    constructor(public readonly conId) { }
 }
 
 export class GetGuestListSuccess implements Action {
@@ -56,4 +53,16 @@ export class ClearSelectedGuest implements Action {
     public readonly type = ClearSelectedGuest.Type;
 }
 
-export type Any = GetGuestList | GetGuestListInternal | GetGuestListSuccess | SelectGuest | ClearSelectedGuest;
+export class CreateGuest implements Action {
+    public static readonly Type = '[Guests] Create Guest';
+    public readonly type = CreateGuest.Type;
+    constructor(public readonly guest) { }
+}
+
+export class CreateGuestSuccess implements Action {
+    public static readonly Type = '[Guests] Create Guest Success';
+    public readonly type = CreateGuestSuccess.Type;
+    constructor(public readonly response) { }
+}
+
+export type Any = GetGuestList | GetGuestListSuccess | SelectGuest | ClearSelectedGuest | CreateGuest | CreateGuestSuccess;

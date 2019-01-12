@@ -15,10 +15,6 @@ export class ActionFactory {
         return new UpdateCon(con);
     }
 
-    public selectCon(conIndex: number): SelectCon {
-        return new SelectCon(conIndex);
-    }
-
     public clearSelectedCon(): ClearSelectedCon {
         return new ClearSelectedCon();
     }
@@ -89,12 +85,6 @@ export class UpdateConSuccess implements Action {
     constructor(public readonly response) { }
 }
 
-export class SelectCon implements Action {
-    public static readonly Type = '[Cons] Select Con';
-    public readonly type = SelectCon.Type;
-    constructor(public readonly conIndex) { }
-}
-
 export class ClearSelectedCon implements Action {
     public static readonly Type = '[Cons] Clear Selected Con';
     public readonly type = ClearSelectedCon.Type;
@@ -123,4 +113,4 @@ export class DeleteConSuccess implements Action {
     constructor(public readonly response) { }
 }
 
-export type Any = GetCons | GetConsSuccess | CreateCon | CreateConSuccess | UpdateCon | UpdateConSuccess | SelectCon | ClearSelectedCon | RefreshCons | RefreshConsSuccess | DeleteCon | DeleteConSuccess;
+export type Any = GetCons | GetConsSuccess | CreateCon | CreateConSuccess | UpdateCon | UpdateConSuccess | ClearSelectedCon | RefreshCons | RefreshConsSuccess | DeleteCon | DeleteConSuccess;

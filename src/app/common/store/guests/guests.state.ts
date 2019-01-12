@@ -38,6 +38,10 @@ export function reducer(state: State = initialState, action: GuestsActions.Any):
             return { ...state, ...{ selectedGuest: null, selectedId: null, selectedIndex: null } }
         }
 
+        case GuestsActions.CreateGuestSuccess.Type: {
+            return { ...state, ...{ guestList: action.response } }
+        }
+
         default: {
             return state;
         }

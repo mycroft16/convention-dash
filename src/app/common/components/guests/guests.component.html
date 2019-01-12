@@ -17,19 +17,26 @@
     <mat-cell *matCellDef="let guest">{{ guest.category }}</mat-cell>
 </ng-container>
 
-<ng-container matColumnDef="status">
-    <mat-header-cell *matHeaderCellDef>Status</mat-header-cell>
-    <mat-cell *matCellDef="let guest">{{ guest.status }}</mat-cell>
-</ng-container>
-
 <ng-container matColumnDef="conCount">
     <mat-header-cell *matHeaderCellDef>Cons</mat-header-cell>
     <mat-cell *matCellDef="let guest">{{ guest.previousCons.length }}</mat-cell>
 </ng-container>
 
+<ng-container matColumnDef="autograph">
+    <mat-header-cell *matHeaderCellDef>Autograph</mat-header-cell>
+    <mat-cell *matCellDef="let guest">{{ guest.priceAutograph | currency:'USD':'symbol':'1.0-0':'en-US' }}</mat-cell>
+</ng-container>
+
 <ng-container matColumnDef="photoOp">
     <mat-header-cell *matHeaderCellDef>Photo Op</mat-header-cell>
-    <mat-cell *matCellDef="let guest">${{ guest.pricePhotoOp }}</mat-cell>
+    <mat-cell *matCellDef="let guest">{{ guest.pricePhotoOp | currency:'USD':'symbol':'1.0-0':'en-US' }}</mat-cell>
+</ng-container>
+
+<ng-container matColumnDef="actions">
+    <mat-header-cell *matHeaderCellDef>&nbsp;</mat-header-cell>
+    <mat-cell *matCellDef="let guest">
+        <button mat-raised-button (click)="editGuest(guest.id)"><i class="fas fa-pencil-alt fa-fw"></i></button>
+    </mat-cell>
 </ng-container>
 
 <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

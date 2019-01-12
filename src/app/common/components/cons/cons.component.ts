@@ -42,6 +42,7 @@ export class ConsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.store.dispatch(factory => factory.cons.getCons());
   }
 
 }

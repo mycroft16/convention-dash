@@ -9,12 +9,20 @@ import * as moment from 'moment';
 export class GuestsService {
     constructor(private apiService: ApiService) { }
 
-    public getGuestList(conId: number): Observable<IGuest[]> {
-        console.log('conId: ', conId);
+    public getGuestList(): Observable<IGuest[]> {
         return this.apiService.get(
             'Guests/GetGuestList',
             {
-                params: { conId: conId }
+                params: { }
+            }
+        );
+    }
+
+    public createGuest(guest: IGuest): Observable<IGuest[]> {
+        return this.apiService.post(
+            'Guests/CreateGuest',
+            {
+                body: guest
             }
         );
     }

@@ -53,20 +53,6 @@
           <input matInput type="text" formControlName="priceAutograph" placeholder="Cost" autocomplete="nope" required />
         </mat-form-field>
       </mat-list-item>
-      <mat-list-item>
-        <div class="halfWidth">
-          <mat-checkbox formControlName="addToCon" [labelPosition]="before" (change)="togglePriceField($event, 'conId')">Add to Con</mat-checkbox>
-        </div>
-        <mat-form-field class="halfWidth">
-          <mat-select formControlName="conId" placeholder="Select a Con" required>
-            <ng-container *ngIf="conList | async">
-              <mat-option *ngFor="let con of (conList | async); let i = index; " [value]="con.id">
-                {{ con.name }}
-              </mat-option>
-            </ng-container>
-          </mat-select>
-        </mat-form-field>
-      </mat-list-item>
     </mat-list>
   </form>
 </mat-dialog-content>

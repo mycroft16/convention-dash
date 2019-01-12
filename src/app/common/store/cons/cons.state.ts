@@ -4,15 +4,11 @@ import { ICon } from '../../interfaces/cons.interface';
 export interface State {
     list: ICon[];
     selectedCon: ICon;
-    selectedId: number;
-    selectedIndex: number;
 }
 
 export const initialState: State = {
     list: null,
-    selectedCon: null,
-    selectedId: null,
-    selectedIndex: null
+    selectedCon: null
 }
 
 export function reducer(state: State = initialState, action: ConsActions.Any): State {
@@ -31,19 +27,8 @@ export function reducer(state: State = initialState, action: ConsActions.Any): S
             return { ...state, ...{ list: action.response.list } }
         }
 
-        case ConsActions.SelectCon.Type: {
-            let selectedIndex: number = null;
-            for (let i = 0; i < state.list.length; i++) {
-                if (state.list[i].id === action.conIndex) {
-                    selectedIndex = i;
-                    break;
-                }
-            }
-            return { ...state, ...{ selectedCon: state.list[selectedIndex], selectedId: action.conIndex, selectedIndex: selectedIndex } }
-        }
-
         case ConsActions.ClearSelectedCon.Type: {
-            return { ...state, ...{ selectedCon: null, selectedId: null, selectedIndex: null } }
+            return { ...state, ...{ selectedCon: null } }
         }
 
         case ConsActions.RefreshConsSuccess.Type: {

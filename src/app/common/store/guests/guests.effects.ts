@@ -16,18 +16,18 @@ export class GuestsEffects {
         .pipe(
             ofType(GuestsActions.GetGuestList.Type),
             switchMap((action: GuestsActions.GetGuestList) =>
-                this.service.getGuestList(action.conId)
+                this.service.getGuestList()
                     .pipe(map(response => this.store.create(factory => factory.guests.getGuestListSuccess(response))))
             )
         );
     
     @Effect()
-    public getGuestListInternal: Observable<Action> = this.actions
+    public createGuest: Observable<Action> = this.actions
         .pipe(
-            ofType(GuestsActions.GetGuestListInternal.Type),
-            switchMap((action: GuestsActions.GetGuestListInternal) =>
-                this.service.getGuestList(action.conId)
-                    .pipe(map(response => this.store.create(factory => factory.guests.getGuestListSuccess(response))))
+            ofType(GuestsActions.CreateGuest.Type),
+            switchMap((action: GuestsActions.CreateGuest) =>
+                this.service.createGuest(action.guest)
+                    .pipe(map(response => this.store.create(factory => factory.guests.createGuestSuccess(response))))
             )
         );
 

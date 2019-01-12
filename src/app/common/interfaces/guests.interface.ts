@@ -14,7 +14,7 @@ export interface IGuest {
     priceAutograph: number;
     doesSelfie: boolean;
     priceSelfie: number;
-    status: string;
+    status?: string;
     previousCons: IPreviousCon[];
     schedule: IGuestSchedule[];
 }

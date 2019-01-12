@@ -16,7 +16,12 @@ export class AuthService {
         );
     }
 
-    public getLoginToken(): Observable<string> {
-        return;
+    public getLoginToken(username: string, password: string): Observable<string> {
+        return this.apiService.get(
+            'Auth/GetLoginToken',
+            {
+                params: { username: username, password: password }
+            }
+        );
     }
 }

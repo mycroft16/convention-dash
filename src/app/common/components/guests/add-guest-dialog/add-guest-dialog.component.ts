@@ -66,13 +66,9 @@ export class AddGuestDialogComponent implements OnInit {
     doesAutograph: [''],
     priceAutograph: [{ value: '', disabled: true }, [
       Validators.required
-    ]],
+    ]]
     // doesSelfie: [''],
     // priceSelfie: [''],
-    addToCon: [''],
-    conId: [{ value: '', disabled: true }, [
-      Validators.required
-    ]]
   });
 
   onFileChange(event, field) {
@@ -110,7 +106,7 @@ export class AddGuestDialogComponent implements OnInit {
   saveGuest() {
     console.log(this.addGuestForm.value);
     if (this.type === 'add') {
-
+      
     } else if (this.type === 'edit') {
 
     }

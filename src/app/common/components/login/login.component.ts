@@ -3,7 +3,6 @@ import { FormBuilder, Validators } from '@angular/forms';
 
 import { AppStore } from '../../store/app.store';
 import { Observable } from 'rxjs';
-import { ICon } from '../../interfaces/cons.interface';
 import { Router } from '@angular/router';
 
 @Component({
@@ -14,7 +13,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  private cons: Observable<ICon[]> = null;
+  private token: Observable<string>;
 
   constructor(private fb: FormBuilder, private router: Router, private store: AppStore) { }
 
@@ -30,13 +29,13 @@ export class LoginComponent implements OnInit {
 
   getAuth() {
     console.log('loginForm: ', this.loginForm);
-    this.store.dispatch(factory => factory.cons.getCons());
-    this.dataLoaded();
+    this.store.dispatch(factory => factory.auth.getLoginToken(this.loginForm.value.fanxUsername, this.loginForm.value.fanxPassword));
+    this.authGranted();
   }
 
-  dataLoaded() {
-    this.cons = this.store.select(store => store.cons.list);
-    this.cons.subscribe(data => {
+  authGranted() {
+    this.token = this.store.select(store => store.auth.authToken);
+    this.token.subscribe(data => {
       if (data !== null) {
         this.router.navigate(['dashboard']);
       }

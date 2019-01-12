@@ -61,20 +61,6 @@ export class ConsEffects {
             )
         );
 
-    @Effect()
-    public selectCon: Observable<Action> = this.actions
-        .pipe(
-            ofType(ConsActions.SelectCon.Type),
-            switchMap((action: ConsActions.SelectCon) =>
-                this.service.selectCon(action.conIndex)
-                    .pipe(
-                        mergeMap(response => [
-                            this.store.create(factory => factory.guests.getGuestListInternal(response))
-                        ])
-                    )
-            )
-        );
-
     constructor(
         private actions: Actions,
         private store: AppStore,

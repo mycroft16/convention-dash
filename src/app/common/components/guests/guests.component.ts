@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { MatBottomSheet, MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material';
 import { AddGuestDialogComponent } from './add-guest-dialog/add-guest-dialog.component';
 import { Observable } from 'rxjs';
 import { IGuest } from '../../interfaces/guests.interface';
@@ -14,9 +14,9 @@ import { AppStore } from '../../store/app.store';
 export class GuestsComponent implements OnInit {
 
   public guestList: Observable<IGuest[]> = null;
-  public displayedColumns: string[] = [ 'index', 'name', 'category', 'status', 'conCount', 'photoOp' ];
+  public displayedColumns: string[] = [ 'index', 'name', 'category', 'conCount', 'autograph', 'photoOp', 'actions' ];
 
-  constructor(public bottomSheet: MatBottomSheet, public dialog: MatDialog, private store: AppStore) {
+  constructor(public dialog: MatDialog, private store: AppStore) {
     this.guestList = this.store.select(store => store.guests.guestList);
   }
 
@@ -36,12 +36,8 @@ export class GuestsComponent implements OnInit {
     });
   }
 
-  public deleteGuest(guest: IGuest): void {
-    // this.bottomSheet.open(DeleteGuestSheetComponent, { data: { guest: guest } } );
-  }
-
   ngOnInit() {
-
+    this.store.dispatch(factory => factory.guests.getGuestList());
   }
 
 }

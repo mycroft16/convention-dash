@@ -18,6 +18,10 @@ export function reducer(state: State = initialState, action: AuthActions.Any): S
             return { ...state, ...{ authToken: action.response } }
         }
 
+        case AuthActions.GetLoginTokenSuccess.Type: {
+            return { ...state, ...{ authToken: action.response.authToken } }
+        }
+
         case AuthActions.SetLoginToken.Type: {
             return { ...state, ...{ authToken: action.token } }
         }

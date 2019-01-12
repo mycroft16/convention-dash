@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { ICon, ICons } from '../../interfaces/cons.interface';
+import { ICon } from '../../interfaces/cons.interface';
 import { SelectControlValueAccessor } from '@angular/forms';
 
 export class ActionFactory {
@@ -25,15 +25,15 @@ export class ActionFactory {
 }
 
 export class InternalActionFactory {
-    public getConsSuccess(response: ICons): GetConsSuccess {
+    public getConsSuccess(response: ICon[]): GetConsSuccess {
         return new GetConsSuccess(response);
     }
 
-    public createConSuccess(response: ICons): CreateConSuccess {
+    public createConSuccess(response: ICon[]): CreateConSuccess {
         return new CreateConSuccess(response);
     }
 
-    public updateConSuccess(response: ICons): UpdateConSuccess {
+    public updateConSuccess(response: ICon[]): UpdateConSuccess {
         return new UpdateConSuccess(response);
     }
 
@@ -41,11 +41,11 @@ export class InternalActionFactory {
         return new RefreshCons();
     }
 
-    public refreshConsSuccess(response: ICons): RefreshConsSuccess {
+    public refreshConsSuccess(response: ICon[]): RefreshConsSuccess {
         return new RefreshConsSuccess(response);
     }
 
-    public deleteConSuccess(response: ICons): DeleteConSuccess {
+    public deleteConSuccess(response: ICon[]): DeleteConSuccess {
         return new DeleteConSuccess(response);
     }
 }

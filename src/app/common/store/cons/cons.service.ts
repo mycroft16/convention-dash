@@ -3,7 +3,7 @@ import { map } from 'rxjs/operators';
 
 import { ApiService } from '../api/api.service';
 import { Observable, of } from 'rxjs';
-import { ICons, ICon } from '../../interfaces/cons.interface';
+import { ICon } from '../../interfaces/cons.interface';
 import { AppStore } from '../../store/app.store';
 import * as moment from 'moment';
 
@@ -11,18 +11,19 @@ import * as moment from 'moment';
 export class ConsService {
     constructor(private apiService: ApiService, private store: AppStore) { }
 
-    public getCons(): Observable<ICons> {
+    public getCons(): Observable<ICon[]> {
         return this.apiService.get(
             'Cons/GetCons',
             {
                 params: { }
             }
+        // );
         ).pipe(
             map(response => this.getConDays(response))
         );
     }
 
-    public createCon(con: ICon): Observable<ICons> {
+    public createCon(con: ICon): Observable<ICon[]> {
         return this.apiService.post(
             'Cons/CreateCon',
             {
@@ -33,7 +34,7 @@ export class ConsService {
         );
     }
 
-    public updateCon(con: ICon): Observable<ICons> {
+    public updateCon(con: ICon): Observable<ICon[]> {
         return this.apiService.post(
             'Cons/UpdateCon',
             {
@@ -44,7 +45,7 @@ export class ConsService {
         )
     }
 
-    public refreshCons(): Observable<ICons> {
+    public refreshCons(): Observable<ICon[]> {
         return this.apiService.get(
             'Cons/RefreshCons',
             {
@@ -55,7 +56,7 @@ export class ConsService {
         );
     }
 
-    public deleteCon(conId: number): Observable<ICons> {
+    public deleteCon(conId: number): Observable<ICon[]> {
         return this.apiService.post(
             'Cons/DeleteCon',
             {
@@ -72,25 +73,25 @@ export class ConsService {
 
 
     // FUNCTIONS
-    private getConDays(response: ICons): ICons {
-        let cons = response.list;
-        for (let i = 0; i < cons.length; i++) {
-            const start = moment(cons[i].startDate);
-            const end = moment(cons[i].endDate);
+    private getConDays(response: ICon[]): ICon[] {
+        console.log(response);
+        for (let i = 0; i < response.length; i++) {
+            const start = moment(response[i].startDate);
+            const end = moment(response[i].endDate);
             const dayCount = end.diff(start, 'days');
-            const statusString = (cons[i].status === "1") ? "Active" : "Planning";
-            const startDisplay = moment(cons[i].startDate).format('M/DD/YYYY');
-            const endDisplay = moment(cons[i].endDate).format('M/DD/YYYY');
+            const statusString = (response[i].status === "1") ? "Active" : "Planning";
+            const startDisplay = moment(response[i].startDate).format('M/DD/YYYY');
+            const endDisplay = moment(response[i].endDate).format('M/DD/YYYY');
 
             let daysTemp = [];
             for (let j = 0; j <= dayCount; j++) {
-                const currentDate = moment(cons[i].startDate).add(j, 'days').format('YYYY-MM-DD');
+                const currentDate = moment(response[i].startDate).add(j, 'days').format('YYYY-MM-DD');
                 const currentDisplay = moment(currentDate).format('MMM Do');
       
                 daysTemp.push({ "date": currentDate, "display": currentDisplay });
             }
-            cons[i] = { 
-                ...cons[i], 
+            response[i] = { 
+                ...response[i], 
                 days: daysTemp,
                 startDisplay: startDisplay,
                 endDisplay: endDisplay,
@@ -98,9 +99,8 @@ export class ConsService {
             };
         }
 
-        return {
-            ...response,
-            list: cons
-        };
+        return [
+            ...response
+        ];
     }
 }

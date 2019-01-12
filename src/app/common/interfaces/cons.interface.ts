@@ -1,8 +1,3 @@
-export interface ICons {
-    list: ICon[];
-    selectedCon: number;
-}
-
 export interface ICon {
     id: number;
     name: string;

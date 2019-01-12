@@ -1,4 +1,4 @@
-<button mat-flat-button (click)="openAddConDialog()">Add Convention <i class="fas fa-plus-circle"></i></button>
+<button mat-flat-button class="addButton" (click)="openAddConDialog()">Add Convention <i class="fas fa-plus-circle"></i></button>
 
 <mat-table [dataSource]="(cons | async)">
 
@@ -35,8 +35,9 @@
   <ng-container matColumnDef="actions">
     <mat-header-cell *matHeaderCellDef>&nbsp;</mat-header-cell>
     <mat-cell *matCellDef="let con">
-      <button mat-raised-button (click)="editCon(con.id)"><i class="fas fa-pencil-alt fa-fw"></i></button>
-      <button mat-raised-button color="warn" (click)="deleteCon(con)"><i class="fas fa-trash-alt fa-fw"></i></button>
+      <button mat-raised-button class="actionButton" (click)="editCon(con.id)"><i class="fas fa-pencil-alt fa-fw"></i></button>
+      <button mat-raised-button class="actionButton"><i class="fas fa-user-plus fa-fw"></i></button>
+      <button mat-raised-button class="actionButton" color="warn" (click)="deleteCon(con)"><i class="fas fa-trash-alt fa-fw"></i></button>
     </mat-cell>
   </ng-container>
 

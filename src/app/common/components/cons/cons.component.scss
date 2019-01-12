@@ -1,13 +1,33 @@
 :host {
-    button {
+    button.addButton {
         left: calc(100% - 180px);
         margin: 15px;
         position: relative;
     }
+    button.actionButton {
+        margin-right: 10px;
+        width: 65px;
+    }
     mat-table {
         margin: 0 15px;
         .mat-column-index {
-            max-width: 85px;
+            max-width: 65px;
+        }
+        .mat-column-event {
+            max-width: 250px;
+        }
+        .mat-column-start, .mat-column-end {
+            max-width: 110px;
+        }
+        .mat-column-days {
+            max-width: 75px;
+        }
+        .mat-column-status {
+            max-width: 100px;
+        }
+        .mat-column-actions {
+            // max-width: *;
+            text-align: right;
         }
         mat-row:hover {
             background-color: #555555;

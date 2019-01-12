@@ -26,6 +26,10 @@ export function reducer(state: State = initialState, action: AuthActions.Any): S
             return { ...state, ...{ authToken: action.token } }
         }
 
+        case AuthActions.Logout.Type: {
+            return { ...state, ...{ authToken: null } }
+        }
+
         default: {
             return state;
         }

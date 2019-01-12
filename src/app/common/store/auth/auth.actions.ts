@@ -12,6 +12,10 @@ export class ActionFactory {
     public setLoginToken(token: string): SetLoginToken {
         return new SetLoginToken(token);
     }
+
+    public logout(): Logout {
+        return new Logout();
+    }
 }
 
 export class InternalActionFactory {
@@ -53,4 +57,9 @@ export class SetLoginToken implements Action {
     constructor(public readonly token) { }
 }
 
-export type Any = GetAuthToken | GetAuthTokenSuccess | GetLoginToken | GetLoginTokenSuccess | SetLoginToken;
+export class Logout implements Action {
+    public static readonly Type = '[Logout]';
+    public readonly type = Logout.Type;
+}
+
+export type Any = GetAuthToken | GetAuthTokenSuccess | GetLoginToken | GetLoginTokenSuccess | SetLoginToken | Logout;

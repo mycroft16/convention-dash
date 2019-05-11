@@ -1,4 +1,4 @@
-import { ConsComponent } from './cons/cons.component';
+import { ConsComponent, AddGuestTypeComponent } from './cons/cons.component';
 import { AddConDialogComponent } from './cons/add-con-dialog/add-con-dialog.component';
 import { AddGuestDialogComponent } from './guests/add-guest-dialog/add-guest-dialog.component';
 import { DeleteConSheetComponent } from './cons/delete-con-sheet/delete-con-sheet.component';
@@ -14,6 +14,7 @@ import { VendorsComponent } from './vendors/vendors.component';
 
 export const COMPONENTS = [
     ConsComponent,
+    AddGuestTypeComponent,
     AddConDialogComponent,
     AddGuestDialogComponent,
     DeleteConSheetComponent,

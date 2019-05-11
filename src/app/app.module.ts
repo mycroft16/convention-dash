@@ -19,6 +19,7 @@ import { STORES, EFFECTS, PROVIDERS, metaReducers } from './common/store';
 // ENTRY COMPONENTS
 import { AddConDialogComponent } from './common/components/cons/add-con-dialog/add-con-dialog.component';
 import { AddGuestDialogComponent } from './common/components/guests/add-guest-dialog/add-guest-dialog.component';
+import { AddGuestTypeComponent } from './common/components/cons/cons.component';
 import { DeleteConSheetComponent } from './common/components/cons/delete-con-sheet/delete-con-sheet.component';
 // import { DeleteGuestSheetComponent } from './common/components/guests/delete-guest-sheet/delete-guest-sheet.component';
 
@@ -30,6 +31,7 @@ import { DeleteConSheetComponent } from './common/components/cons/delete-con-she
   entryComponents: [
     AddConDialogComponent,
     AddGuestDialogComponent,
+    AddGuestTypeComponent,
     DeleteConSheetComponent,
     // DeleteGuestSheetComponent
   ],

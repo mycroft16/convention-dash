@@ -35,9 +35,9 @@
   <ng-container matColumnDef="actions">
     <mat-header-cell *matHeaderCellDef>&nbsp;</mat-header-cell>
     <mat-cell *matCellDef="let con">
-      <button mat-raised-button class="actionButton" (click)="editCon(con.id)"><i class="fas fa-pencil-alt fa-fw"></i></button>
-      <button mat-raised-button class="actionButton"><i class="fas fa-user-plus fa-fw"></i></button>
-      <button mat-raised-button class="actionButton" color="warn" (click)="deleteCon(con)"><i class="fas fa-trash-alt fa-fw"></i></button>
+      <button mat-raised-button class="actionButton" matTooltip="Edit" [matTooltipPosition]="'above'" (click)="editCon(con.id)"><i class="fas fa-pencil-alt fa-fw"></i></button>
+      <button mat-raised-button class="actionButton" matTooltip="Add Guest" [matTooltipPosition]="'above'" (click)="addGuestToCon(con)"><i class="fas fa-user-plus fa-fw"></i></button>
+      <button mat-raised-button class="actionButton" matTooltip="Delete" [matTooltipPosition]="'above'" color="warn" (click)="deleteCon(con)"><i class="fas fa-trash-alt fa-fw"></i></button>
     </mat-cell>
   </ng-container>
 

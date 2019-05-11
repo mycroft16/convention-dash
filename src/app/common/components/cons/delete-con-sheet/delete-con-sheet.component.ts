@@ -11,7 +11,7 @@ import { AppStore } from '../../../store/app.store';
 })
 export class DeleteConSheetComponent implements OnInit {
 
-  con: ICon;
+  public con: ICon;
 
   constructor(
     @Inject(MAT_BOTTOM_SHEET_DATA) public data: any, 
